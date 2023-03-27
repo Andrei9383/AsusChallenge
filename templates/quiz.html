@@ -1,0 +1,19 @@
+# auto focus the input field
+# add a placeholder
+
+<!doctype html>
+<html>
+    <head>
+        <title>Quiz</title>
+    </head>
+    <body>
+        <h1>{{ question_text }}</h1>
+        {% for answer in answers_text %}
+            <p>{{ answer }}</p>
+        {% endfor %}
+        <form action="/" method="post">
+            <input type="text" name="answer" autofocus placeholder="Enter your answer">
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>
