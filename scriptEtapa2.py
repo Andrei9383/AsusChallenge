@@ -2,12 +2,29 @@ import pandas as pd
 import numpy as np
 import os
 
-
 pwd = os.getcwd()
 
+# tell the user how to quit the program then clear the screen
+print("Press 'q' to quit the program")
+# wait for user input to continue
+input("Press Enter to continue...")
+# clear screen for next question
+os.system('cls' if os.name == 'nt' else 'clear')
 
-# pull the csv file from github
-url = 'https://gist.githubusercontent.com/Andrei9383/6ac89a97adfb10e31e244ef84821ec3c/raw/56cbe1fc5bef6f1bbb654d28ac5ff6cb22f57160/AsusChallenge2022_Etapa2.csv'
+# ask the user what test he wants to take
+print("1. Etapa 2 2022")
+print("2. Finala 2022")
+test = input("Select a test: ")
+url = ""
+if test == '1':
+    # pull the csv file from github
+    url = 'https://gist.githubusercontent.com/Andrei9383/6ac89a97adfb10e31e244ef84821ec3c/raw/56cbe1fc5bef6f1bbb654d28ac5ff6cb22f57160/AsusChallenge2022_Etapa2.csv'
+else:
+    # pull the csv file from github
+    url = 'https://gist.githubusercontent.com/Andrei9383/781e8b14c8a116d336c8376110c1a1b5/raw/e3fa75dc819b42dfd6ad5e9b9c9776e62d56798e/AsusChallenge2022_Finala.csv'
+
+os.system('cls' if os.name == 'nt' else 'clear')
+
 dataset = pd.read_csv(url)
 #dataset = pd.read_csv(pwd + '/editedEtapa2.csv')
 
@@ -22,13 +39,6 @@ list3 = dataset.iloc[:, -1].values
 
 rightAnswers = 0
 wrongAnswers = 0
-
-# tell the user how to quit the program then clear the screen
-print("Press 'q' to quit the program")
-# wait for user input to continue
-input("Press Enter to continue...")
-# clear screen for next question
-os.system('cls' if os.name == 'nt' else 'clear')
 
 options = ['a', 'b', 'c', 'd']
 for index, question in enumerate(list):
